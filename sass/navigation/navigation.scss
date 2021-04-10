@@ -1,0 +1,77 @@
+nav{
+    color: #fff;
+    background-color: #000;
+    padding: 3rem 0;
+    width: 20rem;
+    height: 100%;
+}
+
+nav,
+.buttons-panel{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 3.6rem;
+    border-radius: 100%;
+    filter: invert(1);
+    transform: rotate(40deg);
+    margin-right: 1rem;
+}
+
+.logo h2{
+    font-size: 1.8rem;
+}
+
+.buttons-panel{
+    margin-top: 4rem;
+}
+
+.nav-button{
+    color: inherit;
+    margin: 0.8rem 0;
+    padding: 1rem 2rem;
+}
+
+.nav-button, .themes{
+    display: flex;
+    align-items: center;
+}
+
+.invisible{
+    display: none;
+}
+
+.nav-button svg{
+    width: 2rem;
+    fill: #fff;
+    margin-right: 1rem;
+}
+
+.nav-button p{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.active-button{
+    color: gold;
+    border-left: 2px solid gold;
+}
+
+.active-button > svg{
+    fill: gold;
+}
+
+.line{
+    height: 2px;
+    width: 100rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+}

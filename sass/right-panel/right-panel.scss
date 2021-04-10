@@ -1,0 +1,163 @@
+.right-panel{
+    background-color: var(--light-gray);
+    padding: 4rem;
+}
+
+.card{
+    height: 18rem;
+    width: 28rem;
+    border-radius: 2rem;
+    padding: 2rem 2rem 1rem;
+    color: #fff;
+
+    &:nth-child(1){
+        background-color: var(--yellow);
+    }
+
+    &:nth-child(2){
+        background-color: var(--orange);
+        margin-top: -12rem;
+    }
+
+    &:nth-child(3){
+        background-color: var(--green);
+        margin-top: -12rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.card-top,
+.card-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-details{
+    &:last-of-type{
+        align-items: flex-start;
+    }
+
+    b{
+        font-size: 3rem;
+    }
+
+    p:first-of-type{
+        font-size: 1.4rem;
+    }
+
+    p:last-of-type{
+        font-size: 1.1rem;
+        font-weight: 300;
+        margin-top: 0.6rem;
+    }
+}
+
+.contactless-icon{
+    width: 4rem;
+    fill: #fff;
+}
+
+.mastercard-icon{
+    width: 4.5rem;
+}
+
+.transfer-section{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+
+    h2{
+        font-size: 2.4rem;
+    }
+}
+
+.connections{
+    margin-top: 1rem;
+
+    img{
+        width: 5rem;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        cursor: pointer;
+        transition: transform .4s;
+    
+        &:not(:first-of-type){
+            margin-left: -1rem;
+        }
+
+        &:hover{
+            transform: scale(1.2);
+        }
+
+        &:active{
+            transform: scale(1);
+        }
+    }
+}
+
+label{
+    color: rgba($color: #000000, $alpha: 0.5);
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    &:first-of-type{
+        margin-top: 3rem;
+    }
+
+    &:last-of-type{
+        margin-top: 2rem;
+    }
+}
+
+.number-input{
+    position: relative;
+
+    svg{
+        height: 2.5rem;
+        fill: rgba(0,0,0, 0.3);
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        transition: fill 0.3s;
+    }
+}
+
+input[type=number]{
+    width: 100%;
+    padding: 1rem;
+    padding-left: 4rem;
+    margin-top: 2px;
+    border: none;
+    border: 2px solid rgba(0,0,0, 0.3);
+    border-radius: 0.6rem;
+    font-weight: 700;
+    color: rgba(0,0,0, 0.7);
+    transition: border-color 0.3s;
+
+    &:focus, &:hover{
+        outline: none;
+        border-color: rgba(0,0,0, 0.7);
+    }
+
+    &:focus ~ svg,
+    &:hover ~ svg{
+        fill: rgba(0,0,0, 0.7);
+    }
+}
+
+.submit-button{
+    background-color: #000;
+    color: #fff;
+    padding: 1.4rem;
+    margin-top: 3rem;
+    border-radius: 0.6rem;
+    transition: background-color .3s;
+
+    &:hover{
+        background-color: rgba($color: #000000, $alpha: 0.8);
+    }
+}

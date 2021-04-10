@@ -1,0 +1,306 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  --yellow: #fab63b;
+  --orange: #fa6b3f;
+  --green: #46b57b;
+  --dark: #0d1117;
+  --darker: #06090f;
+  --light-gray: #fbfaf8;
+  --green-dark: #1cae93;
+  --green-light: #94c840;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+
+input[type=number] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dark {
+  background-color: var(--dark) !important;
+}
+
+.darker {
+  background-color: var(--darker) !important;
+}
+
+nav {
+  color: #fff;
+  background-color: #000;
+  padding: 3rem 0;
+  width: 20rem;
+  height: 100%;
+}
+
+nav,
+.buttons-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 3.6rem;
+  border-radius: 100%;
+  filter: invert(1);
+  transform: rotate(40deg);
+  margin-right: 1rem;
+}
+
+.logo h2 {
+  font-size: 1.8rem;
+}
+
+.buttons-panel {
+  margin-top: 4rem;
+}
+
+.nav-button {
+  color: inherit;
+  margin: 0.8rem 0;
+  padding: 1rem 2rem;
+}
+
+.nav-button, .themes {
+  display: flex;
+  align-items: center;
+}
+
+.invisible {
+  display: none;
+}
+
+.nav-button svg {
+  width: 2rem;
+  fill: #fff;
+  margin-right: 1rem;
+}
+
+.nav-button p {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.active-button {
+  color: gold;
+  border-left: 2px solid gold;
+}
+
+.active-button > svg {
+  fill: gold;
+}
+
+.line {
+  height: 2px;
+  width: 100rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+}
+
+.middle-section {
+  width: 100%;
+  padding: 3rem;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+}
+.heading h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+.heading p {
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+.heading svg {
+  width: 2.5rem;
+  position: relative;
+}
+.heading svg::before {
+  content: "";
+  height: 1rem;
+  width: 1rem;
+  background-color: red;
+  position: absolute;
+}
+
+.right-panel {
+  background-color: var(--light-gray);
+  padding: 4rem;
+}
+
+.card {
+  height: 18rem;
+  width: 28rem;
+  border-radius: 2rem;
+  padding: 2rem 2rem 1rem;
+  color: #fff;
+}
+.card:nth-child(1) {
+  background-color: var(--yellow);
+}
+.card:nth-child(2) {
+  background-color: var(--orange);
+  margin-top: -12rem;
+}
+.card:nth-child(3) {
+  background-color: var(--green);
+  margin-top: -12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-top,
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-details:last-of-type {
+  align-items: flex-start;
+}
+.card-details b {
+  font-size: 3rem;
+}
+.card-details p:first-of-type {
+  font-size: 1.4rem;
+}
+.card-details p:last-of-type {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-top: 0.6rem;
+}
+
+.contactless-icon {
+  width: 4rem;
+  fill: #fff;
+}
+
+.mastercard-icon {
+  width: 4.5rem;
+}
+
+.transfer-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+.transfer-section h2 {
+  font-size: 2.4rem;
+}
+
+.connections {
+  margin-top: 1rem;
+}
+.connections img {
+  width: 5rem;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+.connections img:not(:first-of-type) {
+  margin-left: -1rem;
+}
+.connections img:hover {
+  transform: scale(1.2);
+}
+.connections img:active {
+  transform: scale(1);
+}
+
+label {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+label:first-of-type {
+  margin-top: 3rem;
+}
+label:last-of-type {
+  margin-top: 2rem;
+}
+
+.number-input {
+  position: relative;
+}
+.number-input svg {
+  height: 2.5rem;
+  fill: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  transition: fill 0.3s;
+}
+
+input[type=number] {
+  width: 100%;
+  padding: 1rem;
+  padding-left: 4rem;
+  margin-top: 2px;
+  border: none;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.6rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.7);
+  transition: border-color 0.3s;
+}
+input[type=number]:focus, input[type=number]:hover {
+  outline: none;
+  border-color: rgba(0, 0, 0, 0.7);
+}
+input[type=number]:focus ~ svg, input[type=number]:hover ~ svg {
+  fill: rgba(0, 0, 0, 0.7);
+}
+
+.submit-button {
+  background-color: #000;
+  color: #fff;
+  padding: 1.4rem;
+  margin-top: 3rem;
+  border-radius: 0.6rem;
+  transition: background-color 0.3s;
+}
+.submit-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*# sourceMappingURL=styles.css.map */
