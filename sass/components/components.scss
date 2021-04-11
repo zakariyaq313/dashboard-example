@@ -1,0 +1,39 @@
+.dark{
+    background-color: var(--dark) !important;
+}
+
+.darker{
+    background-color: var(--darker) !important;
+}
+
+.color-gray{
+    color: rgba($color: #000, $alpha: 0.6);
+}
+
+.green{
+    fill: var(--green);
+}
+
+.yellow{
+    fill: var(--yellow);
+}
+
+.gray{
+    fill: rgba($color: #000, $alpha: 0.8);
+}
+
+.light-green{
+    background-color: rgba($color: #46b57b, $alpha: 0.1);
+}
+
+.light-yellow{
+    background-color: rgba($color: #fab73b, $alpha: 0.2);
+}
+
+.light-gray{
+    background-color: rgba($color: #000, $alpha: 0.1);
+}
+
+.invert{
+    filter: invert(1);
+}
