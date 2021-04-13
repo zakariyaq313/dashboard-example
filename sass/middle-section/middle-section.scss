@@ -1,21 +1,19 @@
 .middle-section{
     width: 100%;
     padding: 3rem 5rem;
+
+    @include respond(1100px){
+        margin-top: 6rem;
+    }
+
+    @include respond(600px){
+        padding: 3rem;
+    }
 }
 
 .heading{
     display: flex;
     justify-content: space-between;
-
-    h1{
-        font-size: 3.5rem;
-        font-weight: 700;
-    }
-
-    p{
-        font-size: 1.4rem;
-        color: rgba($color: #000000, $alpha: 0.6);
-    }
 
     svg{
         width: 2.5rem;
@@ -24,10 +22,6 @@
 
 .heading-2{
     margin-top: 4rem;
-
-    h2{
-        font-size: 2.2rem;
-    }
 }
 
 .recent-transactions{
@@ -44,10 +38,6 @@
 
     &:not(:last-of-type){
         border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
-    }
-
-    h3, b, p{
-        font-size: 1.5rem;
     }
 }
 
@@ -70,14 +60,9 @@
 
     &-info{
         margin-left: 1rem;
-
-        p{
-            font-size: 1.2rem;
-            margin-top: 2px;
-        }
     }
 }
 
-.amount{
-    display: inline;
+canvas{
+    margin-top: 5rem;
 }

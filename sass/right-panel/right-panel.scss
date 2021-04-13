@@ -1,6 +1,21 @@
 .right-panel{
     background-color: var(--light-gray);
     padding: 4rem;
+
+    @include respond(850px){
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    @include respond(650px){
+        padding: 4rem 2rem;
+    }
+
+    @include respond(600px){
+        padding: 6rem 2rem;
+        flex-direction: column;
+    }
 }
 
 .card{
@@ -35,24 +50,8 @@
     align-items: center;
 }
 
-.card-details{
-    &:last-of-type{
-        align-items: flex-start;
-    }
-
-    b{
-        font-size: 3rem;
-    }
-
-    p:first-of-type{
-        font-size: 1.4rem;
-    }
-
-    p:last-of-type{
-        font-size: 1.1rem;
-        font-weight: 300;
-        margin-top: 0.6rem;
-    }
+.card-details:last-of-type{
+    align-items: flex-start;
 }
 
 .contactless-icon{
@@ -67,10 +66,14 @@
 .transfer-section{
     display: flex;
     flex-direction: column;
-    margin-top: 5rem;
+    margin-top: 6rem;
 
-    h2{
-        font-size: 2.4rem;
+    @include respond(850px){
+        margin-top: 0;
+    }
+
+    @include respond(600px){
+        margin-top: 6rem;
     }
 }
 
@@ -98,23 +101,12 @@
     }
 }
 
-label{
-    color: rgba($color: #000000, $alpha: 0.5);
-    font-size: 1.2rem;
-    font-weight: 500;
-    display: inline-block;
-
-    &:first-of-type{
-        margin-top: 3rem;
-    }
-
-    &:last-of-type{
-        margin-top: 2rem;
-    }
-}
-
 .number-input{
     position: relative;
+
+    @include respond(600px){
+        width: 70vw;
+    }
 
     svg{
         height: 2.5rem;
@@ -127,7 +119,7 @@ label{
     }
 }
 
-input[type=number]{
+input{
     width: 100%;
     padding: 1rem;
     padding-left: 4rem;
@@ -135,8 +127,6 @@ input[type=number]{
     border: none;
     border: 2px solid rgba(0,0,0, 0.1);
     border-radius: 0.6rem;
-    font-weight: 700;
-    color: rgba(0,0,0, 0.6);
     transition: border-color 0.3s;
 
     &:focus, &:hover{

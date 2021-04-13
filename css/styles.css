@@ -9,11 +9,28 @@ html {
   --yellow: #fab63b;
   --orange: #fa6b3f;
   --green: #46b57b;
-  --dark: #0d1117;
-  --darker: #06090f;
+  --dark: #11151d;
+  --darker: #0d1117;
+  --darkest: #06090f;
   --light-gray: #fbfaf8;
+  --dark-gray: #252d3a;
   --green-dark: #1cae93;
   --green-light: #94c840;
+}
+@media (min-width: 1600px) {
+  html {
+    font-size: 75%;
+  }
+}
+@media (max-width: 350px) {
+  html {
+    font-size: 55%;
+  }
+}
+@media (max-width: 320px) {
+  html {
+    font-size: 50%;
+  }
 }
 
 body {
@@ -42,6 +59,97 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 main {
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
+}
+@media (max-width: 850px) {
+  main {
+    flex-direction: column;
+  }
+}
+
+.logo h2 {
+  font-size: 1.8rem;
+}
+
+.nav-button p,
+.user p {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.heading h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+@media (max-width: 500px) {
+  .heading h1 {
+    font-size: 2.8rem;
+  }
+}
+.heading p {
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 500px) {
+  .heading p {
+    font-size: 1.2rem;
+  }
+}
+
+.heading-2 h2 {
+  font-size: 2.2rem;
+}
+
+.transaction-status h3, .transaction-status b, .transaction-status p {
+  font-size: 1.5rem;
+}
+@media (max-width: 500px) {
+  .transaction-status h3, .transaction-status b, .transaction-status p {
+    font-size: 1.2rem;
+  }
+}
+
+.receiver-info p {
+  font-size: 1.2rem;
+  margin-top: 2px;
+}
+@media (max-width: 500px) {
+  .receiver-info p {
+    font-size: 1rem;
+  }
+}
+
+.amount {
+  display: inline;
+}
+
+.card-details b {
+  font-size: 3rem;
+}
+.card-details p:first-of-type {
+  font-size: 1.4rem;
+}
+.card-details p:last-of-type {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-top: 0.6rem;
+}
+
+.transfer-section h2 {
+  font-size: 2.4rem;
+}
+
+label {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: inline-block;
+}
+label:first-of-type {
+  margin-top: 3rem;
+}
+label:last-of-type {
+  margin-top: 2rem;
 }
 
 .dark {
@@ -50,6 +158,26 @@ main {
 
 .darker {
   background-color: var(--darker) !important;
+}
+
+.darkest {
+  background-color: var(--darkest) !important;
+}
+
+.dark-gray {
+  background-color: var(--dark-gray);
+  color: #fff;
+}
+
+.green-gradient {
+  background-image: linear-gradient(to right, var(--green-dark), var(--green-light));
+}
+.green-gradient:hover {
+  background-image: linear-gradient(to left, var(--green-dark), var(--green-light));
+}
+
+.invert {
+  filter: invert(1);
 }
 
 .color-gray {
@@ -80,15 +208,102 @@ main {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.invert {
-  filter: invert(1);
+.menu-button {
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+  margin: 2rem;
+  border-radius: 100%;
+  transition-delay: 0.2s;
+  transition: all 0.3s;
+  display: none;
+  z-index: 10;
+}
+@media (max-width: 1100px) {
+  .menu-button {
+    display: inline-block;
+  }
+}
+@media (max-width: 500px) {
+  .menu-button {
+    right: 0;
+  }
+}
+.menu-button::before {
+  top: 40%;
+}
+.menu-button::after {
+  top: 60%;
 }
 
-nav {
-  color: #fff;
+.menu-button::before,
+.menu-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 2px;
+  width: 3rem;
   background-color: #000;
-  padding: 3rem 0;
-  width: 20rem;
+  transition: all 0.5s;
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.5rem);
+  z-index: 5;
+  display: none;
+}
+
+.menu-open {
+  background-color: #000;
+  right: 0;
+}
+.menu-open::before, .menu-open::after {
+  width: 3rem;
+  background-color: #fff;
+  top: 50%;
+}
+.menu-open::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.menu-open::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.navbar-open {
+  display: flex;
+}
+
+.invisible-button {
+  display: none !important;
+}
+
+.active-button {
+  color: var(--yellow) !important;
+  border-left: 2px solid var(--yellow);
+}
+.active-button svg {
+  fill: var(--yellow) !important;
+}
+
+.transform {
+  transform: translate(0, 0);
+  transition: transform 0.3s;
+}
+
+.overlay-visible {
+  display: block;
+}
+@media (max-width: 850px) {
+  .overlay-visible {
+    display: none;
+  }
 }
 
 nav,
@@ -97,12 +312,31 @@ nav,
   flex-direction: column;
 }
 
+nav {
+  color: #fff;
+  background-color: #000;
+  justify-content: space-between;
+  padding: 3rem 0rem 3rem 0;
+}
+@media (max-width: 1100px) {
+  nav {
+    display: none;
+    position: relative;
+    transform: translate(-100rem, 0);
+    z-index: 10;
+  }
+}
+@media (max-width: 850px) {
+  nav {
+    transform: translate(0, -100rem);
+  }
+}
+
 .logo {
   padding: 0 2rem;
   display: flex;
   align-items: center;
 }
-
 .logo img {
   width: 3.6rem;
   border-radius: 100%;
@@ -111,18 +345,23 @@ nav,
   margin-right: 1rem;
 }
 
-.logo h2 {
-  font-size: 1.8rem;
-}
-
 .buttons-panel {
-  margin-top: 4rem;
+  margin-top: -20rem;
 }
-
-.nav-button {
-  color: inherit;
-  margin: 0.8rem 0;
-  padding: 1rem 2rem;
+@media (max-width: 1200px) {
+  .buttons-panel {
+    margin-top: -10rem;
+  }
+}
+@media (max-width: 1100px) {
+  .buttons-panel {
+    margin-top: -20rem;
+  }
+}
+@media (max-width: 850px) {
+  .buttons-panel {
+    margin-top: 5rem;
+  }
 }
 
 .nav-button, .themes {
@@ -130,53 +369,63 @@ nav,
   align-items: center;
 }
 
-.invisible {
-  display: none;
+.nav-button {
+  color: inherit;
+  margin: 0.8rem 0;
+  padding: 1rem 2rem;
 }
-
 .nav-button svg {
   width: 2rem;
   fill: #fff;
   margin-right: 1rem;
 }
 
-.nav-button p {
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-
-.active-button {
-  color: gold;
-  border-left: 2px solid gold;
-}
-
-.active-button > svg {
-  fill: gold;
-}
-
 .line {
-  height: 2px;
-  width: 100rem;
+  height: 1px;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
   margin: 2rem 0;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  background-color: var(--dark);
+  border-radius: 0.5rem;
+  margin: 0 1rem;
+  width: 18rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.user img {
+  width: 4rem;
+  border-radius: 100%;
+  margin-right: 4px;
+}
+.user svg {
+  fill: #fff;
+  width: 1rem;
+  margin-left: 1rem;
 }
 
 .middle-section {
   width: 100%;
   padding: 3rem 5rem;
 }
+@media (max-width: 1100px) {
+  .middle-section {
+    margin-top: 6rem;
+  }
+}
+@media (max-width: 600px) {
+  .middle-section {
+    padding: 3rem;
+  }
+}
 
 .heading {
   display: flex;
   justify-content: space-between;
-}
-.heading h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-}
-.heading p {
-  font-size: 1.4rem;
-  color: rgba(0, 0, 0, 0.6);
 }
 .heading svg {
   width: 2.5rem;
@@ -184,9 +433,6 @@ nav,
 
 .heading-2 {
   margin-top: 4rem;
-}
-.heading-2 h2 {
-  font-size: 2.2rem;
 }
 
 .recent-transactions {
@@ -203,9 +449,6 @@ nav,
 }
 .transaction-status:not(:last-of-type) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.transaction-status h3, .transaction-status b, .transaction-status p {
-  font-size: 1.5rem;
 }
 
 .receiver {
@@ -226,18 +469,32 @@ nav,
 .receiver-info {
   margin-left: 1rem;
 }
-.receiver-info p {
-  font-size: 1.2rem;
-  margin-top: 2px;
-}
 
-.amount {
-  display: inline;
+canvas {
+  margin-top: 5rem;
 }
 
 .right-panel {
   background-color: var(--light-gray);
   padding: 4rem;
+}
+@media (max-width: 850px) {
+  .right-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 650px) {
+  .right-panel {
+    padding: 4rem 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .right-panel {
+    padding: 6rem 2rem;
+    flex-direction: column;
+  }
 }
 
 .card {
@@ -272,17 +529,6 @@ nav,
 .card-details:last-of-type {
   align-items: flex-start;
 }
-.card-details b {
-  font-size: 3rem;
-}
-.card-details p:first-of-type {
-  font-size: 1.4rem;
-}
-.card-details p:last-of-type {
-  font-size: 1.1rem;
-  font-weight: 300;
-  margin-top: 0.6rem;
-}
 
 .contactless-icon {
   width: 4rem;
@@ -296,10 +542,17 @@ nav,
 .transfer-section {
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
+  margin-top: 6rem;
 }
-.transfer-section h2 {
-  font-size: 2.4rem;
+@media (max-width: 850px) {
+  .transfer-section {
+    margin-top: 0;
+  }
+}
+@media (max-width: 600px) {
+  .transfer-section {
+    margin-top: 6rem;
+  }
 }
 
 .connections {
@@ -322,21 +575,13 @@ nav,
   transform: scale(1);
 }
 
-label {
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 1.2rem;
-  font-weight: 500;
-  display: inline-block;
-}
-label:first-of-type {
-  margin-top: 3rem;
-}
-label:last-of-type {
-  margin-top: 2rem;
-}
-
 .number-input {
   position: relative;
+}
+@media (max-width: 600px) {
+  .number-input {
+    width: 70vw;
+  }
 }
 .number-input svg {
   height: 2.5rem;
@@ -348,7 +593,7 @@ label:last-of-type {
   transition: fill 0.3s;
 }
 
-input[type=number] {
+input {
   width: 100%;
   padding: 1rem;
   padding-left: 4rem;
@@ -356,15 +601,13 @@ input[type=number] {
   border: none;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.6rem;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.6);
   transition: border-color 0.3s;
 }
-input[type=number]:focus, input[type=number]:hover {
+input:focus, input:hover {
   outline: none;
   border-color: rgba(0, 0, 0, 0.4);
 }
-input[type=number]:focus ~ svg, input[type=number]:hover ~ svg {
+input:focus ~ svg, input:hover ~ svg {
   fill: rgba(0, 0, 0, 0.6);
 }
 

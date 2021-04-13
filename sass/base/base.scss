@@ -9,11 +9,25 @@ html{
     --yellow: #fab63b;
     --orange: #fa6b3f;
     --green: #46b57b;
-    --dark: #0d1117;
-    --darker: #06090f;
+    --dark: #11151d;
+    --darker: #0d1117;
+    --darkest: #06090f;
     --light-gray: #fbfaf8;
+    --dark-gray: #252d3a;
     --green-dark: #1cae93;
     --green-light: #94c840;
+
+    @include respond(1600px){
+        font-size: 75%;
+    }
+
+    @include respond(350px){
+        font-size: 55%;
+    }
+
+    @include respond(320px){
+        font-size: 50%;
+    }
 }
 
 body{
@@ -45,4 +59,9 @@ input[type=number] {
 main{
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
+
+    @include respond(850px){
+        flex-direction: column;
+    }
 }

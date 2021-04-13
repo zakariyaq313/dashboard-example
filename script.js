@@ -1,55 +1,99 @@
-const navButtons = document.querySelectorAll("button.window-switches");
-navButtons.forEach(button => {
+(function(){
+  let themeSwitch = document.querySelector(".theme-switcher");
+  let menu = document.querySelector("span.menu-button");
+  let navigation = document.querySelector("nav");
+  let page = document.querySelector("body");
+  let overlay = document.querySelector("div.overlay");
+  let cardInput = document.querySelector("#credit-card-number");
+  let middleSection = document.querySelector(".middle-section");
+  let rightPanel = document.querySelector(".right-panel");
+  let submitButton  = document.querySelector(".submit-button");
+  let darkTheme = document.querySelector(".theme-dark");
+  let lightTheme = document.querySelector(".theme-light");
+  const inputFields = document.querySelectorAll("input");
+  const navButtons = document.querySelectorAll("button.window-switches");
+  const invertElements = document.querySelectorAll(".light-colour");
+
+  // For changing styles on active/inactive navigation buttons
+  navButtons.forEach(button => {
     button.addEventListener("click", () => {
         navButtons.forEach(siblings => siblings.classList.remove("active-button"));
         button.classList.add("active-button");
-    })
-});
+  })});
 
-(function(){
-  let navigation = document.querySelector("nav");
-  let middleSection = document.querySelector(".middle-section");
-  let rightPanel = document.querySelector(".right-panel");
-  let themeSwitch = document.querySelector(".theme-switcher");
-  let darkTheme = document.querySelector(".theme-dark");
-  let lightTheme = document.querySelector(".theme-light");
-  let element1 = document.querySelector(".heading h1");
-  let element2 = document.querySelector(".heading-2 h2");
-  let element3 = document.querySelector(".transfer-section h2");
-  let element4 = document.querySelector("div.light-gray");
-  let element5 = document.querySelectorAll(".transaction-status b");
-  let element6 = document.querySelectorAll(".transaction-status p");
-  let element7 = document.querySelectorAll(".transaction-status h3");
-  const invertElements = [element1, element2, element3, element4, ...element5, ...element6, ...element7];
-  console.log(invertElements);
-
+  // Switching between dark and light themes
   themeSwitch.addEventListener("click", () => {
-    navigation.classList.toggle("darker");
-    middleSection.classList.toggle("dark");
-    rightPanel.classList.toggle("darker");
-    darkTheme.classList.toggle("invisible");
-    lightTheme.classList.toggle("invisible");
+    rightPanel.classList.toggle("dark");
+    navigation.classList.toggle("darkest");
+    submitButton.classList.toggle("green-gradient");
+    [page, middleSection].forEach((element) => element.classList.toggle("darker"));
+    [darkTheme, lightTheme].forEach((element) => element.classList.toggle("invisible-button"));
+    inputFields.forEach((element) => element.classList.toggle("dark-gray"))
     invertElements.forEach((element) => element.classList.toggle("invert"));
+  })
+
+  // For showing/hiding navigation panel on smaller screens
+  menu.addEventListener("click", () => {
+    menu.classList.toggle("menu-open");
+    navigation.classList.toggle("navbar-open");
+    overlay.classList.toggle("overlay-visible");
+    setTimeout(() => {navigation.classList.toggle("transform"), 1});
+  })
+
+  // Credit card input formatting
+  cardInput.addEventListener("input", () => {
+    let cardNumber = cardInput.value;
+    let formattedCardNumber = cardNumber.replace(/[^\d]/g, "");
+    formattedCardNumber = formattedCardNumber.substring(0, 16);
+  
+    let cardNumberSections = formattedCardNumber.match(/\d{1,4}/g);
+    if (cardNumberSections !== null) {
+        formattedCardNumber = cardNumberSections.join(' ');
+    }
+    
+    if (cardNumber !== formattedCardNumber) {
+        cardInput.value = formattedCardNumber;
+    }
   })
 })();
 
+// Graph
 let ctx = document.querySelector("canvas");
-var stars = [135850, 52122, 148825, 16939, 9763];
-var frameworks = ["React", "Angular", "Vue", "Hyperapp", "Omi"];
-
-var myChart = new Chart(ctx, {
+let amount = [430, 450, 440, 452, 445, 465, 458, 470, 465, 487, 488, 482, 495, 486, 485];
+let day = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29];
+let myChart = new Chart(ctx, {
   type: "line",
   data: {
-    labels: frameworks,
+    labels: day,
     datasets: [
       {
-        label: "Github Stars",
-        data: stars,
-        backgroundColor: "rgba(70, 181, 123, 0.6)",
+        label: "Amount(in $)",
+        data: amount,
+        backgroundColor: "rgba(70, 181, 123, 0.2)",
         borderColor: "rgba(70, 181, 123, 1)",
-        borderWidth: 1,
-        lineTension: 0.4
+        borderWidth: 3,
+        fill: true,
+        lineTension: 0.4,
       }
-    ]
+    ],
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    scales: {
+      x: {
+        grid:{
+          display: false
+        },
+      },
+      y: {
+        grid:{
+          display: false
+        },
+      }
+    }
   }
 });
